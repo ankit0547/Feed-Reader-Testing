@@ -27,27 +27,25 @@ $(function() {
         });
 
 
-        /* TODO: Write a test that loops through each feed
-         * in the allFeeds object and ensures it has a URL defined
-         * and that the URL is not empty.
-         */
+        
+         // Test for each feed objects URL should defined and not empty
+
          it('url should be defined and not empty',function(){
             allFeeds.forEach(function(feed){
                 feedlink = feed.url;
-                expect(feedlink)toBeDefined();
+                expect(feedlink).toBeDefined();
                 expect(feedlink.length).not.toBe(0);
 
             })
          });
 
 
-        /* TODO: Write a test that loops through each feed
-         * in the allFeeds object and ensures it has a name defined
-         * and that the name is not empty.
-         */
+         
+         // Test for each feed objects name should defined and not empty
+
          it('name should be defined and not empty',function(){
             allFeeds.forEach(function(feed){
-                feedName = feed.name;
+                let feedName = feed.name;
                 expect(feedName).toBeDefined();
                 expect(feedName.length).not.toBe(0);
             });
@@ -55,41 +53,31 @@ $(function() {
     });
 
 
-    /* TODO: Write a new test suite named "The menu" */
+     //   New test suite named "The menu" 
 
-        /* TODO: Write a test that ensures the menu element is
-         * hidden by default. You'll have to analyze the HTML and
-         * the CSS to determine how we're performing the
-         * hiding/showing of the menu element.
-         */
+       
 
-
-         /* TODO: Write a test that ensures the menu changes
-          * visibility when the menu icon is clicked. This test
-          * should have two expectations: does the menu display when
-          * clicked and does it hide when clicked again.
-          */
           describe('The menu',function(){
+
+            // Test for Body has hiding/showing CSS Class of menu element
             it('hidden menu',function(){
-              expect($('.menu-hidden').is(':visible')).toBe(true);
-            });
-
+                expect($('body').hasClass('menu-hidden').toBe(true);
+                          });
+             // Test for toggle classes to show menu
             it('menu visible on click',function(){
-                $('a.menu-icon-link').trigger('click');
-                expect($('.menu-hidden')).is(':visible').toBe(true);
+                $('a.menu-icon-link').trigger('click');  // click the menu-icon
+                expect($('.menu-hidden')).is(':visible').toBe(true);// check here menu is visible
+                $('a.menu-icon-link').trigger('click');  // again click the menu-icon
+                    expect($('.menu-hidden')).is(':hidden').toBe(true); // check here menu must be hidden
+                          });
+
             });
-            
-         });
 
 
-    /* TODO: Write a new test suite named "Initial Entries" */
+     // New test suite named "Initial Entries" 
 
-        /* TODO: Write a test that ensures when the loadFeed
-         * function is called and completes its work, there is at least
-         * a single .entry element within the .feed container.
-         * Remember, loadFeed() is asynchronous so this test will require
-         * the use of Jasmine's beforeEach and asynchronous done() function.
-         */
+       
+         // Test for loadFeed function should work completely
         describe('Initial Entries', function() {
                 // run before test
                 beforeEach(function(done) {
@@ -102,12 +90,11 @@ $(function() {
             });
 
 
-    /* TODO: Write a new test suite named "New Feed Selection" */
+     // New test suite named "New Feed Selection" 
 
-        /* TODO: Write a test that ensures when a new feed is loaded
-         * by the loadFeed function that the content actually changes.
-         * Remember, loadFeed() is asynchronous.
-         */
+
+         // Test for content of loadFeed function changes
+         
          describe('New Feed Selection', function(){
             var testfeed;
 
