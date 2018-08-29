@@ -61,16 +61,24 @@ $(function() {
 
             // Test for Body has hiding/showing CSS Class of menu element
             it('hidden menu',function(){
-                expect($('body').hasClass('menu-hidden').toBe(true);
-                          });
-             // Test for toggle classes to show menu
-            it('menu visible on click',function(){
-                $('a.menu-icon-link').trigger('click');  // click the menu-icon
-                expect($('.menu-hidden')).is(':visible').toBe(true);// check here menu is visible
-                $('a.menu-icon-link').trigger('click');  // again click the menu-icon
-                    expect($('.menu-hidden')).is(':hidden').toBe(true); // check here menu must be hidden
+                expect($('body').hasClass('menu-hidden')).toBe(true);
+
                           });
 
+
+
+             // Test for toggle classes to show menu
+
+            it('toggles visibility on click', function() {
+                $('a.menu-icon-link').trigger('click'); // show menu
+                expect($('body').hasClass('menu-hidden')).toBe(false);
+
+                $('a.menu-icon-link').trigger('click'); // hide menu again
+                expect($('body').hasClass('menu-hidden')).toBe(true);
+         });
+
+
+            
             });
 
 
